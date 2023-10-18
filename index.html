@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,28 +8,67 @@
   <link rel="stylesheet" href="assets/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
 <body>
-<form>
-  <div class="input-field">
-    <input type="text" id="input_text" class="validate">
-    <label for="input_text">Enter Text</label>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo" id="brand-logo">Project Name</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Top-Rated</a></li>
+        <li><a href="badges.html">Upcoming</a></li>
+        <li><a href="collapsible.html">Popular</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <h1></h1>
   </div>
-  <button class="btn waves-effect waves-light" id="searchBtn" type="submit" name="action">Submit
-    <i class="material-icons right"></i>
-  </button>
-</form>
-</div>
-
-<button class="btn waves-effect waves-light" id="popularBtn" type="submit" name="action">Popular Movies
-  <i class="material-icons right"></i>
-  <button class="btn waves-effect waves-light" id="recentMoviesBtn" type="submit" name="action">Recent Movies
-    <i class="material-icons right"></i>
-  
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <div class="container">
+    <form>
+      <div class="input-field">
+        <input type="text" id="input_text" class="validate">
+        <label for="input_text">Search a Movie Here</label>
+      </div>
+      <button class="btn waves-effect waves-light" id="custom-button" type="submit">
+        <i class="material-icons right"></i>Search
+      </button>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="">
+          <span class="card-title">Card Title</span>
+        </div>
+        <div class="card-content">
+          <p></p>
+        </div>
+        <div class="card-action">
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="assets/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    M.AutoInit();
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
