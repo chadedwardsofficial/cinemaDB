@@ -1,3 +1,57 @@
 body {
-    background-color: rgb(3, 3, 101);
+    background: linear-gradient(to bottom, rgb(3, 3, 101), rgb(60, 131, 229)) no-repeat;
+    min-height: 100vh;
+}
+
+.nav-wrapper {
+    background-color:rgb(3, 3, 101);
+    height: 64px;
+}
+
+#brand-logo {
+    padding-left: 20px;
+    color:rgb(248, 248, 62);
+    display: flex;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nav-mobile li a {
+    color: rgb(248, 248, 62);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nav-mobile li a:hover {
+    color:rgb(60, 131, 229);
+}
+
+.card {
+    width: 20%;
+    box-shadow: 0 4px 8px 0 #00000033;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%; 
+}
+
+.card-title {
+    color: rgb(3, 3, 101);
+    padding: 10px; 
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.input-field {
+    height: 175px;
+    background-color:rgb(60, 131, 229);
+    border-radius: 30px;
+    padding-top: 45px;
+}
+
+#custom-button {
+color: rgb(3, 3, 101);
+background-color:rgb(248, 248, 62);
 }
