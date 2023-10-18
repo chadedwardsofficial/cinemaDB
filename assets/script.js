@@ -20,18 +20,21 @@ const options = {
 searchBtn.on("click", function (event) {
   event.preventDefault();
   getMoviedata(userInput.val());
+  getYoutubedata(userInput.val());
   console.log(userInput.val());
 });
 
 popularBtn.on("click", function (event) {
   event.preventDefault();
   getPopularMovies();
+  getYoutubedata();
 });
 
 
 recentMoviesBtn.on("click", function (event) {
   event.preventDefault();
   getRecentMovies();
+  getYoutubedata();
 });
 
 
@@ -93,3 +96,35 @@ function getRecentMovies() {
       console.log(data);
     });
 }
+
+
+
+
+// This Function fetches data from Youtube's API with parameters of their trailer //
+
+// function getYoutubedata(query) {
+//   const apiKey = 'AIzaSyCcZRBi5jPVXYgEXJiuQVqYqqTcTR3pm2Y'; // Replace with your YouTube API key
+
+//   // Commonly used keywords for movie trailers
+//   const trailerKeywords = ['official trailer', 'teaser trailer', 'trailer'];
+
+//   // Combine the main query with trailer keywords
+//   const combinedQuery = `${query} ${trailerKeywords.join(' OR ')}`;
+
+//   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${combinedQuery}&videoCategoryId=44&order=viewCount&key=${apiKey}`;
+
+//   fetch(apiUrl)
+//     .then(response => response.json())
+//     .then(data => {
+//       // Handle the data here
+//       console.log(data);
+//       const videoId = data.items[0].id.videoId;
+//       const videoTitle = data.items[0].snippet.title;
+//       const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+//       console.log(`The most popular trailer for ${query} is: ${videoTitle}`);
+//       console.log(`You can watch it here: ${videoUrl}`);
+//     })
+//     .catch(error => console.error('Error:', error));
+// }
+
+
