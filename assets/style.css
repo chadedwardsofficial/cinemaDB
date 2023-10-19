@@ -25,6 +25,7 @@ body {
     color:rgb(60, 131, 229);
 }
 
+
 .card {
     display: flex;
     width: 400px;
@@ -50,6 +51,7 @@ body {
 }
 
 .input-field {
+    text-align: center;
     height: 175px;
     background-color:rgb(60, 131, 229);
     border-radius: 30px;

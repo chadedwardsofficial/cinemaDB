@@ -23,7 +23,7 @@ searchBtn.on("click", function (event) {
   event.preventDefault();
   const userInputTrailer = userInput.val() + " trailer";
   getMoviedata(userInput.val());
-  getYoutubedata(userInputTrailer);
+  // getYoutubedata(userInputTrailer);
   console.log(userInput.val());
 });
 
@@ -37,6 +37,15 @@ recentMoviesBtn.on("click", function (event) {
   getRecentMovies();
 });
 
+cardContainer.on("click", ".movieLink", function(event){
+  event.preventDefault();
+  console.log(event.target);
+  var myBtn = $(event.target);
+  var movieTitle = myBtn.data('title') + ' trailer';
+  console.log(movieTitle);
+  youtubeLink(movieTitle);
+
+})
 //Functions//
 
 // This Function searches for movies with names based on the keywords submitted in the userInput//
@@ -60,7 +69,7 @@ function getMoviedata(keyword) {
        
           <div class="card">
             <div class="card-content">
-            <a href="#">Link</a>
+            <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
               <h5>Title: </h5><span>${data.results[i].original_title}</span>
               <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
             </div>
@@ -99,7 +108,7 @@ function getPopularMovies() {
         <div class="card">
           <div class="card-content">
           <a href="#">Link</a>
-            <h5>Title: </h5><span>${data.results[i].original_title}</span>
+            <h5>Title: </h5><span class="moviettl">${data.results[i].original_title}</span>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
           </div>
           <div class="card-image">
@@ -149,4 +158,10 @@ function getYoutubedata(query) {
       console.log(`You can watch it here: ${videoUrl}`);
     })
     .catch((error) => console.error("Error:", error));
+}
+
+
+
+function openYoutube(){
+  window.open(`youtube.com/${data.resultsPLACEHOLDER}`, '_blank');
 }
