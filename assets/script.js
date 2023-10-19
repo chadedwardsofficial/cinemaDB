@@ -6,6 +6,7 @@ var userInput = $("#input_text");
 var searchBtn = $("#searchBtn");
 var popularBtn = $("#popularBtn");
 var recentMoviesBtn = $("#recentMoviesBtn");
+var cardContainer = $(".cardContainer");
 // This const variable is for the authentication for the api key, it is passed at the end of the fetch url after a comma, this is a cleaner way of using our api key with parameters//
 const options = {
   method: "GET",
@@ -29,13 +30,11 @@ searchBtn.on("click", function (event) {
 popularBtn.on("click", function (event) {
   event.preventDefault();
   getPopularMovies();
-  getYoutubedata();
 });
 
 recentMoviesBtn.on("click", function (event) {
   event.preventDefault();
   getRecentMovies();
-  getYoutubedata();
 });
 
 //Functions//
@@ -52,16 +51,27 @@ function getMoviedata(keyword) {
     })
     .then(function (data) {
       console.log(data);
-      const firstVideoTitle = data.results[0].original_title;
-      const releaseDate = data.results[0].release_date;
+      cardContainer.empty();
+      for (i = 0; i < 19; i++) {
+        // getYoutubedata(data.results[i].original_title);
 
-      // console.log(releaseDate);
-      // console.log(firstVideoTitle);
-
-      for (i = 0; i < data.results.length; i++) {
-        getYoutubedata(data.results[i].original_title);
-        console.log(data.results[i].original_title);
-        console.log(data.results[i].release_date);
+        if (data.results[i].poster_path) {
+          cardContainer.append(`  <div class="row">
+       
+          <div class="card">
+            <div class="card-content">
+            <a href="#">Link</a>
+              <h5>Title: </h5><span>${data.results[i].original_title}</span>
+              <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+            </div>
+            <div class="card-image">
+            <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
+          </div>
+          </div>
+        </div>
+        
+        `);
+        }
       }
     });
 }
@@ -73,13 +83,35 @@ function getPopularMovies() {
     `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&per_page=10`,
     options
   )
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
+  .then(function (response) {
+    console.log(response);
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    cardContainer.empty();
+    for (i = 0; i < 19; i++) {
+      // getYoutubedata(data.results[i].original_title);
+
+      if (data.results[i].poster_path) {
+        cardContainer.append(`  <div class="row">
+     
+        <div class="card">
+          <div class="card-content">
+          <a href="#">Link</a>
+            <h5>Title: </h5><span>${data.results[i].original_title}</span>
+            <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+          </div>
+          <div class="card-image">
+          <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
+        </div>
+        </div>
+      </div>
+      
+      `);
+      }
+    }
+  });
 }
 
 // This function searches for the most recent movies, yielding 20 results per page //
