@@ -5,7 +5,7 @@ var youtubeAPIkey = "AIzaSyCcZRBi5jPVXYgEXJiuQVqYqqTcTR3pm2Y";
 var userInput = $("#input_text");
 var searchBtn = $("#searchBtn");
 var popularBtn = $("#popularBtn");
-var recentMoviesBtn = $("#recentMoviesBtn");
+var recentBtn = $("#recentBtn");
 var cardContainer = $(".cardContainer");
 // This const variable is for the authentication for the api key, it is passed at the end of the fetch url after a comma, this is a cleaner way of using our api key with parameters//
 const options = {
@@ -27,12 +27,12 @@ searchBtn.on("click", function (event) {
   console.log(userInput.val());
 });
 
-popularBtn.on("click", function (event) {
+popularBtn.on("click", function(event) {
   event.preventDefault();
   getPopularMovies();
 });
 
-recentMoviesBtn.on("click", function (event) {
+recentBtn.on("click", function (event) {
   event.preventDefault();
   getRecentMovies();
 });
@@ -62,7 +62,6 @@ function getMoviedata(keyword) {
       console.log(data);
       cardContainer.empty();
       for (i = 0; i < 19; i++) {
-        // getYoutubedata(data.results[i].original_title);
 
         if (data.results[i].poster_path) {
           cardContainer.append(`  <div class="row">
@@ -85,7 +84,7 @@ function getMoviedata(keyword) {
     });
 }
 
-// This Function searches for most popular movies currently, yielding 20 results per page //
+// This Function searches for most popular movies currently, yielding results per page //
 
 function getPopularMovies() {
   fetch(
@@ -100,15 +99,14 @@ function getPopularMovies() {
     console.log(data);
     cardContainer.empty();
     for (i = 0; i < 19; i++) {
-      // getYoutubedata(data.results[i].original_title);
 
-      if (data.results[i].poster_path) {
+      if (data.results[i].poster_path) { //This if statement checks if the movie data has a poster img, it will publish the content on the page, this way we do not have cards with broken img icons//
         cardContainer.append(`  <div class="row">
      
         <div class="card">
           <div class="card-content">
-          <a href="#">Link</a>
-            <h5>Title: </h5><span class="moviettl">${data.results[i].original_title}</span>
+          <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
+            <h5>Title: </h5><span>${data.results[i].original_title}</span>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
           </div>
           <div class="card-image">
@@ -123,7 +121,7 @@ function getPopularMovies() {
   });
 }
 
-// This function searches for the most recent movies, yielding 20 results per page //
+// This function searches for the most recent movies, yielding results per page //
 
 function getRecentMovies() {
   fetch(
@@ -136,6 +134,27 @@ function getRecentMovies() {
     })
     .then(function (data) {
       console.log(data);
+      cardContainer.empty();
+      for (i = 0; i < 18; i++) {
+  
+        if (data.results[i].poster_path) { //This if statement checks if the movie data has a poster img, it will publish the content on the page, this way we do not have cards with broken img icons//
+          cardContainer.append(`  <div class="row">
+       
+          <div class="card">
+            <div class="card-content">
+            <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
+              <h5>Title: </h5><span>${data.results[i].original_title}</span>
+              <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+            </div>
+            <div class="card-image">
+            <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
+          </div>
+          </div>
+        </div>
+        
+        `);
+        }
+      }
     });
 }
 
