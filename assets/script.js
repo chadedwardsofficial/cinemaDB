@@ -73,8 +73,8 @@ function getMoviedata(keyword) {
         <div class="card">
           <div class="card-content">
         
-            <h5></h5><span >${data.results[i].original_title}</span>
-            <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+            <h5>${data.results[i].original_title}</h5>
+            <h5>Release Date: </h5><span>${data.results[i].release_date}</h5>
             <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
             <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
             </div>
@@ -110,8 +110,8 @@ function getPopularMovies() {
         <div class="card">
           <div class="card-content">
         
-            <h5></h5><span>${data.results[i].original_title}</span>
-            <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+           <div class="headerTitle"> <h5>${data.results[i].original_title}</h5></div>
+            <h5>Release Date: </h5><span>${data.results[i].release_date}</h5>
             <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
             <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
             </div>
@@ -147,7 +147,7 @@ function getRecentMovies() {
         <div class="card">
           <div class="card-content">
         
-            <h5></h5><span>${data.results[i].original_title}</span>
+            <h5>${data.results[i].original_title}</h5>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
             <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
             <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
@@ -199,8 +199,12 @@ function getFavoriteMovies() {
       <div class="row">
         <div class="card">
           <div class="card-content">
-            <h5>Title: </h5><span>${movie.title}</span>
+            <h5>${movie.title}</h5>
             <h5>Release Date: </h5><span>${movie.releaseDate}</span>
+            <div class="buttons">
+            <button class="movieLink" data-title="${movie.title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
+
+            </div>
           </div>
           <div class="card-image">
             <img src="${movie.posterPath}">
