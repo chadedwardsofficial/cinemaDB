@@ -27,6 +27,8 @@ body {
 
 
 .card {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.856), rgba(0, 0, 0, 0.6));
+    color:white;
     display: flex;
     width: 400px;
     height: 350px;
@@ -39,6 +41,7 @@ body {
 .card-image img {
     width: 100%;
     height: 100%; 
+    border-radius: 10px;
 }
 
 .card-title {
@@ -47,7 +50,11 @@ body {
 }
 
 .card-content {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 10px;
+    text-align: center;
 }
 
 .input-field {
@@ -67,4 +74,35 @@ background-color:rgb(248, 248, 62);
     display:flex;
     flex-wrap: wrap;
     flex-grow: 1;
+}
+.buttons {
+    margin-top: 20%
+ 
+}
+
+.favoriteBtn {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+    margin-right: 10px;
+    transition: transform 0.2s;
+}
+
+.movieLink {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+
+.favoriteBtn:hover {
+    transform: scale(1.7);
 }
