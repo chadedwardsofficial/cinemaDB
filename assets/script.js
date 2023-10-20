@@ -7,6 +7,9 @@ var searchBtn = $("#searchBtn");
 var popularBtn = $("#popularBtn");
 var recentBtn = $("#recentBtn");
 var cardContainer = $(".cardContainer");
+var favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+
+
 // This const variable is for the authentication for the api key, it is passed at the end of the fetch url after a comma, this is a cleaner way of using our api key with parameters//
 const options = {
   method: "GET",
@@ -46,6 +49,23 @@ cardContainer.on("click", ".movieLink", function(event){
   youtubeLink(movieTitle);
 
 })
+
+$(".myFavoritesBtn").on("click", function(event) {
+  event.preventDefault();
+  getFavoriteMovies();
+ });
+
+cardContainer.on("click", ".favoriteBtn", function(event) {
+  event.preventDefault();
+  const card = $(this).closest('.card');
+  const movieInfo = {
+    title: card.find('span').eq(0).text(), // Adjust indices if needed
+    releaseDate: card.find('span').eq(1).text(), // Adjust indices if needed
+    posterPath: card.find('img').attr('src')
+  };
+  saveToLocalStorage(movieInfo);
+ });
+
 //Functions//
 
 // This Function searches for movies with names based on the keywords submitted in the userInput//
@@ -71,6 +91,7 @@ function getMoviedata(keyword) {
             <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
               <h5>Title: </h5><span>${data.results[i].original_title}</span>
               <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+              <button class="favoriteBtn">Favorite</button>
             </div>
             <div class="card-image">
             <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -80,6 +101,9 @@ function getMoviedata(keyword) {
         
         `);
         }
+        saveToLocalStorage(data.results[i].original_title);
+        saveToLocalStorage(data.results[i].release_date);
+        saveToLocalStorage("https://image.tmdb.org/t/p/w500${data.results[i].poster_path}");
       }
     });
 }
@@ -108,6 +132,7 @@ function getPopularMovies() {
           <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
             <h5>Title: </h5><span>${data.results[i].original_title}</span>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+            <button class="favoriteBtn">Favorite</button>
           </div>
           <div class="card-image">
           <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -145,6 +170,8 @@ function getRecentMovies() {
             <button class="movieLink" data-title="${data.results[i].original_title}">FontAwesomeIcon</button>
               <h5>Title: </h5><span>${data.results[i].original_title}</span>
               <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
+              <button class="favoriteBtn">Favorite</button>
+              
             </div>
             <div class="card-image">
             <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -184,3 +211,37 @@ function getYoutubedata(query) {
 function openYoutube(){
   window.open(`youtube.com/${data.resultsPLACEHOLDER}`, '_blank');
 }
+
+
+
+
+
+function getFavoriteMovies() {
+  const favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+  cardContainer.empty();
+  for (const movie of favoriteMovies) {
+    cardContainer.append(`  
+      <div class="row">
+        <div class="card">
+          <div class="card-content">
+            <h5>Title: </h5><span>${movie.title}</span>
+            <h5>Release Date: </h5><span>${movie.releaseDate}</span>
+          </div>
+          <div class="card-image">
+            <img src="${movie.posterPath}">
+          </div>
+        </div>
+      </div>
+    `);
+  }
+}
+ 
+
+
+
+ function saveToLocalStorage(movie) {
+  const favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+  favoriteMovies.push(movie);
+  localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+ }
+ 

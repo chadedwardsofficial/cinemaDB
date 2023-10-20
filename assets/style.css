@@ -27,6 +27,8 @@ body {
 
 
 .card {
+    background-color: rgba(0, 0, 0, 0.856);
+    color:white;
     display: flex;
     width: 400px;
     height: 350px;
