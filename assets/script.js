@@ -32,7 +32,7 @@ recentBtn.on("click", function (event) {
 });
 cardContainer.on("click", ".movieLink", function (event) {
   event.preventDefault();
-  const movieTitle = $(this).data("title") + 'trailer';
+  const movieTitle = $(this).data("title") + "trailer";
   getYoutubedata(movieTitle);
 });
 
@@ -45,12 +45,22 @@ cardContainer.on("click", ".favoriteBtn", function (event) {
   event.preventDefault();
   const card = $(this).closest(".card");
   const movieInfo = {
-    title: card.find("span").eq(0).text(),
-    releaseDate: card.find("span").eq(1).text(),
+    title: card.find("h5").eq(0).text(),
+    releaseDate: card.find("span").text(),
     posterPath: card.find("img").attr("src"),
   };
+
   saveToLocalStorage(movieInfo);
 });
+
+cardContainer.on("click", ".unFavoriteBtn", function (event) {
+  event.preventDefault();
+  const card = $(this).closest(".card");
+  const movieTitle = card.find("h5").eq(0).text();
+  removeFavoriteMovie(movieTitle);
+  card.remove(); // Remove the card from the DOM
+});
+
 //Functions//
 // This Function searches for movies with names based on the keywords submitted in the userInput//
 function getMoviedata(keyword) {
@@ -169,11 +179,11 @@ function getYoutubedata(query) {
   const apiKey = "AIzaSyCcZRBi5jPVXYgEXJiuQVqYqqTcTR3pm2Y"; // Replace with your YouTube API key
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${query}&order=relevance&key=${apiKey}`;
   fetch(apiUrl)
-  .then(function (response) {
-    console.log(response);
-    return response.json();
-  })
-  .then(function (data) {
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
       // Handle the data here
       console.log(data);
       const videoId = data.items[0].id.videoId; // This line of code searches through the data to find the video's ID (this tells us the specific ID of the video to add to the url)//
@@ -184,7 +194,6 @@ function getYoutubedata(query) {
       openYoutube(videoId); //Calls the openYoutube function with the parameters of the video's ID//
     })
     .catch((error) => console.error("Error:", error));
- 
 }
 function openYoutube(query) {
   window.open(`https://www.youtube.com/watch?v=${query}`, "_blank"); //Opens a youtube link in a new tab with the parameter queried in to the youtube-url//
@@ -203,7 +212,7 @@ function getFavoriteMovies() {
             <h5>Release Date: </h5><span>${movie.releaseDate}</span>
             <div class="buttons">
             <button class="movieLink" data-title="${movie.title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
-
+            <button class="unFavoriteBtn"><i class="fa-solid fa-heart-crack" style="color: #f11e84;"></i></button>
             </div>
           </div>
           <div class="card-image">
@@ -220,3 +229,15 @@ function saveToLocalStorage(movie) {
   favoriteMovies.push(movie);
   localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
 }
+
+function removeFavoriteMovie(title) {
+  let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+  favoriteMovies = favoriteMovies.filter((movie) => movie.title !== title);
+  localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+}
+
+
+
+
+
+
