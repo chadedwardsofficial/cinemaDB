@@ -48,3 +48,5 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 - Lauren Morrison https://github.com/Laulecmor
 - Keung Inthachak https://github.com/kyungda
 - Materialize CSS https://materializecss.com/
+- TheMovieDB API https://api.themoviedb.org/3/search/movie
+- Youtube API https://www.googleapis.com/youtube/v3/search
