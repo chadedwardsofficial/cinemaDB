@@ -1,6 +1,6 @@
-# CinemaDB
+# CinemaDB with Materialize CSS
 
-
+[insert picture]
 
 ## Introduction
 
@@ -11,8 +11,6 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 - [Demo](#demo)
 - [Installation](#installation)
 - 
-
-
 
 
 ##  Features
