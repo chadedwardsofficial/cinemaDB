@@ -35,8 +35,7 @@ cardContainer.on("click", ".movieLink", function (event) {
   const movieTitle = $(this).data("title") + "trailer";
   getYoutubedata(movieTitle);
 });
-
-$(".myFavoritesBtn").on("click", function (event) {
+$("#myFavoritesBtn").on("click", function (event) {
   event.preventDefault();
   getFavoriteMovies();
 });
@@ -49,10 +48,8 @@ cardContainer.on("click", ".favoriteBtn", function (event) {
     releaseDate: card.find("span").text(),
     posterPath: card.find("img").attr("src"),
   };
-
   saveToLocalStorage(movieInfo);
 });
-
 cardContainer.on("click", ".unFavoriteBtn", function (event) {
   event.preventDefault();
   const card = $(this).closest(".card");
@@ -60,7 +57,6 @@ cardContainer.on("click", ".unFavoriteBtn", function (event) {
   removeFavoriteMovie(movieTitle);
   card.remove(); // Remove the card from the DOM
 });
-
 //Functions//
 // This Function searches for movies with names based on the keywords submitted in the userInput//
 function getMoviedata(keyword) {
@@ -82,13 +78,11 @@ function getMoviedata(keyword) {
           cardContainer.append(`  <div class="row">
         <div class="card">
           <div class="card-content">
-        
             <h5>${data.results[i].original_title}</h5>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</h5>
-            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
-            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
+            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #F11E84;"></i></button>
+            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #D51010;"></i></button>
             </div>
-            
           </div>
           <div class="card-image">
           <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -119,13 +113,11 @@ function getPopularMovies() {
           cardContainer.append(`  <div class="row">
         <div class="card">
           <div class="card-content">
-        
            <div class="headerTitle"> <h5>${data.results[i].original_title}</h5></div>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</h5>
-            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
-            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
+            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #F11E84;"></i></button>
+            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #D51010;"></i></button>
             </div>
-            
           </div>
           <div class="card-image">
           <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -156,13 +148,11 @@ function getRecentMovies() {
           cardContainer.append(`  <div class="row">
         <div class="card">
           <div class="card-content">
-        
             <h5>${data.results[i].original_title}</h5>
             <h5>Release Date: </h5><span>${data.results[i].release_date}</span>
-            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #f11e84;"></i></button>
-            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
+            <div class="buttons"> <button class="favoriteBtn"><i class="fa-solid fa-heart fa-beat" style="color: #F11E84;"></i></button>
+            <button class="movieLink" data-title="${data.results[i].original_title}"><i class="fa-brands fa-youtube fa-lg" style="color: #D51010;"></i></button>
             </div>
-            
           </div>
           <div class="card-image">
           <img src="https://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
@@ -211,8 +201,8 @@ function getFavoriteMovies() {
             <h5>${movie.title}</h5>
             <h5>Release Date: </h5><span>${movie.releaseDate}</span>
             <div class="buttons">
-            <button class="movieLink" data-title="${movie.title}"><i class="fa-brands fa-youtube fa-lg" style="color: #d51010;"></i></button>
-            <button class="unFavoriteBtn"><i class="fa-solid fa-heart-crack" style="color: #f11e84;"></i></button>
+            <button class="movieLink" data-title="${movie.title}"><i class="fa-brands fa-youtube fa-lg" style="color: #D51010;"></i></button>
+            <button class="unFavoriteBtn"><i class="fa-solid fa-heart-crack" style="color: #F11E84;"></i></button>
             </div>
           </div>
           <div class="card-image">
@@ -229,7 +219,6 @@ function saveToLocalStorage(movie) {
   favoriteMovies.push(movie);
   localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
 }
-
 function removeFavoriteMovie(title) {
   let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
   favoriteMovies = favoriteMovies.filter((movie) => movie.title !== title);

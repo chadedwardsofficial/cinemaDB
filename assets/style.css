@@ -102,3 +102,40 @@ body {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.favoriteBtn:hover {
+    transform: scale(1.7);
+}
+.unFavoriteBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+.unFavoriteBtn:hover {
+    transform: scale(1.7);
+}
+
+.movieLink {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+}
+.favoriteBtn {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+    margin-right: 10px;
+    transition: transform 0.2s;
+}
