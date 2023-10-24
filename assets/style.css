@@ -8,6 +8,7 @@ body {
     height: 64px;
 }
 
+
 #brand-logo {
     padding-left: 20px;
     color: rgb(248, 248, 62);
@@ -59,7 +60,36 @@ body {
 }
 
 .card-content {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 10px;
+    text-align: center;
+}
+
+#custom-button {
+    color: rgb(3, 3, 101);
+    background-color: rgb(248, 248, 62);
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+#searchBtn {
+    margin-top: 10px;
+    background-color: rgba(248, 248, 62, 0.929);
+    color: rgb(3, 3, 101);
+}
+
+.searchContainer {
+    width: 50%;
+    height: 150px;
+    margin-left: 25%;
+    background-color: rgba(3, 3, 101, 0);
+    border-radius: 20px;
 }
 
 #custom-button {
@@ -96,4 +126,43 @@ body {
 .validate {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.favoriteBtn:hover {
+    transform: scale(1.7);
+}
+.unFavoriteBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+.unFavoriteBtn:hover {
+    transform: scale(1.7);
+}
+
+.movieLink {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+}
+.favoriteBtn {
+    /* margin-top: 25%; */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor:pointer;
+    outline: none;
+    background-color: transparent;
+    margin-right: 10px;
+    transition: transform 0.2s;
+
 }
