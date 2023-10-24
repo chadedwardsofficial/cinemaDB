@@ -10,8 +10,6 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 - [Features](#features)
 - [Demo](#demo)
 - [Installation](#installation)
-- 
-
 
 ##  Features
 
@@ -31,7 +29,12 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 
 1. Clone the repository:
 
-$ git clone "https://github.com/chadedwardsofficial/group-project1.git"
+## Usage
 
-
-
+-Upon loading the website, you can start searching for movies using the search bar.
+-View details on movies upon search including the title and release date.
+-Watch the movie's trailer by clicking the "Youtube" icon.
+-Save your favorite movies by clicking on the "Heart" icon.
+-Unsave favorite movies by clicking the "Broken-Heart" icon.
+-Access your favorite movies by clicking on favorites in the navigation menu.
+-Enjoy exploring and discovering great movies!
