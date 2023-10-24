@@ -24,7 +24,7 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 
 ## Demo
 
--   See the live demo of CinemaDB with Materialize CSS:
+-   See the live demo of CinemaDB with Materialize CSS: https://chadedwardsofficial.github.io/cinemaDB/
 
 ## Installation
 
@@ -32,7 +32,7 @@ CinemaDB with Materialize CSS is a responsive web application that allows users 
 
 1. Clone the repository: 
 
-"$ git clone https://github.com/chadedwardsofficial/group-project1.git"
+"$ git clone https://github.com/chadedwardsofficial/cinemaDB.git"
 
 ## Usage
 
