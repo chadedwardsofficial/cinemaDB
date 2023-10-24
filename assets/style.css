@@ -1,37 +1,41 @@
-.cardContainer {
-    display:flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-}
-
 body {
     background: linear-gradient(to bottom, rgb(3, 3, 101), rgb(60, 131, 229)) no-repeat;
     min-height: 100vh;
 }
 .nav-wrapper {
-    background-color:rgb(3, 3, 101);
+    background-color: rgb(3, 3, 101);
     height: 64px;
 }
 #brand-logo {
     padding-left: 20px;
-    color:rgb(248, 248, 62);
+    color: rgb(248, 248, 62);
     display: flex;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #nav-mobile li a {
     color: rgb(248, 248, 62);
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-#nav-mobile li a:hover {
-    color:rgb(60, 131, 229);
+#nav-mobile li button:hover {
+    color: rgb(60, 131, 229);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.nav-link {
+    text-decoration: none;
+    color: rgb(248, 248, 62);
+    background-color: rgb(3, 3, 101);
+    padding: 0 10px;
+    border-color: transparent;
+    height: 60px;
 }
 .card {
     background-color: rgba(0, 0, 0, 0.856);
-    color:rgb(255, 255, 255);
+    color: white;
     display: flex;
     width: 400px;
     height: 350px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; #00000033;
+    box-shadow: 0 4px 8px 0 #00000033;
     border-radius: 10px;
     overflow: hidden;
     font-size: 20px;
@@ -47,41 +51,33 @@ body {
 .card-content {
     padding: 10px;
 }
-.input-field {
-    text-align: center;
-    height: 175px;
-    background-color:rgb(60, 131, 229);
-    border-radius: 30px;
-    padding-top: 45px;
-}
 #custom-button {
-color: rgb(3, 3, 101);
-background-color:rgb(248, 248, 62);
+    color: rgb(3, 3, 101);
+    background-color: rgb(248, 248, 62);
 }
 .cardContainer {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
 }
-
-.favoriteBtn {
-    background: none;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: underline; /* Add underline to make it look like a link */
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-  }
-
-  .PLACEHOLDER {
-    background: none;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: underline;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-  }
+#searchBtn {
+    margin-top: 10px;
+    background-color: rgba(248, 248, 62, 0.929);
+    color: rgb(3, 3, 101);
+}
+.searchContainer {
+    width: 50%;
+    height: 150px;
+    margin-left: 25%;
+    background-color: rgba(3, 3, 101, 0);
+    border-radius: 20px;
+}
+.input-field {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(3, 3, 101, 0);
+}
+.validate {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
