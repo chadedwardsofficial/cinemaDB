@@ -235,9 +235,3 @@ function removeFavoriteMovie(title) {
   favoriteMovies = favoriteMovies.filter((movie) => movie.title !== title);
   localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
 }
-
-
-
-
-
-
