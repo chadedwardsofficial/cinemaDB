@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="assets/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
+</head>
+
 <body>
   <nav>
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo" id="brand-logo">cinemaDB</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><button id="popularBtn">Popular </button></li>
-        <li><button id="recentBtn">Recent</button></li>
-        <li><button class="myFavoritesBtn">My Favorites</button></li>
+        <li><button id="popularBtn" class="nav-link">Popular </button></li>
+        <li><button id="recentBtn" class="nav-link">Recent</button></li>
+        <li><button id="myFavoritesBtn" class="nav-link">My Favorites</button></li>
       </ul>
     </div>
   </nav>
@@ -25,10 +27,10 @@
   </div>
   <div class="container">
     <form>
-        <div class="input-field">
+      <div class="input-field">
         <input type="text" id="input_text" class="validate">
         <label for="input_text">Search a Movie Here</label>
-        </div>
+      </div>
       <button class="btn waves-effect waves-light" id="searchBtn" type="submit">
         <i class="material-icons right"></i>Search
       </button>
@@ -44,6 +46,7 @@
     M.AutoInit();
   </script>
 </body>
+
 </html>
 
 

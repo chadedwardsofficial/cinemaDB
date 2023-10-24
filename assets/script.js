@@ -35,7 +35,7 @@ cardContainer.on("click", ".movieLink", function (event) {
   const movieTitle = $(this).data("title") + "trailer";
   getYoutubedata(movieTitle);
 });
-$(".myFavoritesBtn").on("click", function (event) {
+$("#myFavoritesBtn").on("click", function (event) {
   event.preventDefault();
   getFavoriteMovies();
 });

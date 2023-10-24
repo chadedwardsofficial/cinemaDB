@@ -1,6 +1,8 @@
 # CinemaDB with Materialize CSS
 
-[insert picture]
+![Startup](cinemaDB.PNG)
+
+![Search](cinemaDB2.PNG)
 
 ## Introduction
 
